@@ -13,7 +13,12 @@
     <header>
         <nav>
             <div class="logo">DO</div>
-            <ul>
+            <button class="mobile-menu-button" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -35,24 +40,32 @@
                 <h1>Dennis Otto</h1>
                 <h2>Senior Growth Product Manager</h2>
                 <p>Driving AI-powered growth, SEO excellence, and data-led product innovation.</p>
-                <a href="docs/Dennis_Otto_Senior_Product_Manager.pdf" class="cta-button">Download CV</a>
+                <div class="hero-buttons">
+                    <a href="https://www.linkedin.com/in/dennisotto/" target="_blank" class="contact-button linkedin">LinkedIn Profile</a>
+                    <a href="https://github.com/Dennotto2007" target="_blank" class="contact-button github">
+                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
+                        GitHub Profile
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="about" class="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>With over 10 years of experience in Growth, SEO, and Product Leadership, I specialize in:</p>
-                <ul>
+            <h2 class="about-heading">About Me</h2>
+            <div class="about-content centered">
+                <p class="about-description">With over 10 years of experience in Growth, SEO, and Product Leadership, I specialize in:</p>
+                <ul class="about-list">
                     <li>AI-powered Tools and Prompt Engineering</li>
                     <li>SEO Excellence and Technical Optimization</li>
                     <li>Programmatic Advertising and Performance Marketing</li>
                     <li>Product Growth and Monetization Strategies</li>
                 </ul>
-                <p>Languages: 
-                    <span class="language">German 🇩🇪</span> • 
-                    <span class="language">English 🇬🇧</span> • 
-                    <span class="language">Polish 🇵🇱</span>
+                <p class="about-languages">Languages: 
+                    <span class="language-tag">German 🇩🇪</span> 
+                    <span class="dot">•</span> 
+                    <span class="language-tag">English 🇬🇧</span> 
+                    <span class="dot">•</span> 
+                    <span class="language-tag">Polish 🇵🇱</span>
                 </p>
             </div>
         </section>
@@ -163,6 +176,46 @@
                         <span>#Engineering</span>
                     </div>
                 </div>
+                <div class="project-card">
+                    <h3><a href="https://website-summary-tool.onrender.com/" target="_blank">Website Summary Tool</a></h3>
+                    <p>AI-powered tool for generating structured Markdown summaries of web pages</p>
+                    <div class="tags">
+                        <span>#AI</span>
+                        <span>#WebApp</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <h3><a href="https://matrix-notes-flow.lovable.app/" target="_blank">Matrix Notes Flow</a></h3>
+                    <p>Interactive note-taking and organization tool</p>
+                    <div class="tags">
+                        <span>#Productivity</span>
+                        <span>#WebApp</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="github" class="github">
+            <h2>GitHub</h2>
+            <div class="github-content">
+                <div class="github-profile">
+                    <h3>GitHub Profile</h3>
+                    <a href="https://github.com/Dennotto2007" target="_blank" class="github-link">
+                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
+                        @Dennotto2007
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="companies" class="companies">
+            <h2>Worked with Companies like</h2>
+            <div class="company-logos">
+                <img src="images/Omni.svg" alt="Omni Calculator" class="company-logo">
+                <img src="images/EBay_logo.svg" alt="eBay" class="company-logo">
+                <img src="images/Toptal_Logo.svg" alt="Toptal" class="company-logo">
+                <img src="images/Webinterpret.png" alt="Webinterpret" class="company-logo">
+                <img src="images/ready2order.png" alt="Ready2Order" class="company-logo">
             </div>
         </section>
 
@@ -170,15 +223,37 @@
             <h2>Contact</h2>
             <div class="contact-content">
                 <p>I look forward to hearing from you!</p>
-                <div class="contact-buttons">
+                <div class="hero-buttons">
                     <a href="https://www.linkedin.com/in/dennisotto/" target="_blank" class="contact-button linkedin">LinkedIn Profile</a>
+                    <a href="https://github.com/Dennotto2007" target="_blank" class="contact-button github">
+                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
+                        GitHub Profile
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Dennis Otto. All rights reserved.</p>
+        <p>&copy; 2025 Dennis Otto. All rights reserved.</p>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenuButton.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenuButton.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html> 
