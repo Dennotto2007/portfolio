@@ -3,324 +3,464 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dennis Otto | Senior Growth Product Manager</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Dennis Otto is a Senior Product Manager and Product Builder creating measurable customer and business impact across AI, marketplaces, SaaS, and consumer products.">
+    <title>Dennis Otto | Senior Product Manager &amp; Product Builder</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">DO</div>
-            <button class="mobile-menu-button" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
+    <header class="site-header">
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="brand" href="#hero" aria-label="Dennis Otto, back to top">DO</a>
+            <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
             </button>
-            <ul class="nav-links">
-                <li><a href="#ai-secretary">AI Secretary</a></li>
+            <ul id="primary-navigation" class="nav-links">
+                <li><a href="#product-work">Product Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#prototypes">AI &amp; Prototypes</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="hero-content">
-                <div class="profile-image">
-                    <img 
-                        src="images/profile.png" 
-                        alt="Dennis Otto - Senior Growth Product Manager"
-                        loading="eager"
-                    />
+        <section id="hero" class="hero section-shell">
+            <div class="hero-copy">
+                <p class="eyebrow">Dennis Otto</p>
+                <h1>Senior Product Manager <span aria-hidden="true">|</span> Product Builder</h1>
+                <p class="hero-lede">I build and scale digital products at the intersection of customer experience, business impact, data, and technology.</p>
+                <div class="button-row">
+                    <a class="button button-primary" href="#product-work">View Product Work</a>
+                    <a class="button button-secondary" href="https://www.linkedin.com/in/dennisotto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                    <a class="button button-quiet" href="https://github.com/Dennotto2007" target="_blank" rel="noopener noreferrer">GitHub</a>
                 </div>
-                <h1>Dennis Otto</h1>
-                <h2>Senior Growth Product Manager</h2>
-                <p>Driving AI-powered growth, SEO excellence, and data-led product innovation.</p>
-                <div class="hero-buttons">
-                    <a href="https://www.linkedin.com/in/dennisotto/" target="_blank" class="contact-button linkedin">LinkedIn Profile</a>
-                    <a href="https://github.com/Dennotto2007" target="_blank" class="contact-button github">
-                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
-                        GitHub Profile
-                    </a>
-                </div>
+            </div>
+            <figure class="hero-portrait">
+                <img src="images/profile.png" alt="Portrait of Dennis Otto" width="420" height="420">
+            </figure>
+        </section>
+
+        <section id="proof" class="proof section-shell" aria-labelledby="proof-title">
+            <div class="section-heading section-heading-compact">
+                <p class="eyebrow">Selected impact</p>
+                <h2 id="proof-title">Products measured by outcomes</h2>
+            </div>
+            <div class="metric-grid">
+                <article class="metric-card">
+                    <p class="metric-value">$10.8M</p>
+                    <p>Annualized revenue impact from conversion improvement</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-value">€2.5M</p>
+                    <p>Annualized margin from expanded gifting</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-value">+46%</p>
+                    <p>Daily ad revenue from monetization improvements</p>
+                </article>
+                <article class="metric-card">
+                    <p class="metric-value">70%</p>
+                    <p>Cost reduction through experimentation automation</p>
+                </article>
             </div>
         </section>
 
-        <section id="companies" class="companies">
-            <h2>Worked with Companies like</h2>
+        <section id="companies" class="companies section-shell" aria-labelledby="companies-title">
+            <h2 id="companies-title">Product experience across</h2>
             <div class="company-logos">
-                <img src="images/Groupon_Logo.png" alt="Groupon" class="company-logo">
-                <img src="images/Omni.svg" alt="Omni Calculator" class="company-logo">
-                <img src="images/EBay_logo.svg" alt="eBay" class="company-logo">
-                <img src="images/Toptal_Logo.svg" alt="Toptal" class="company-logo">
-                <img src="images/Webinterpret.png" alt="Webinterpret" class="company-logo">
-                <img src="images/ready2order.png" alt="Ready2Order" class="company-logo">
+                <img src="images/Groupon_Logo.png" alt="Groupon" loading="lazy">
+                <img src="images/Omni.svg" alt="Omni Calculator" loading="lazy">
+                <img src="images/EBay_logo.svg" alt="eBay" loading="lazy">
+                <img src="images/Toptal_Logo.svg" alt="Toptal" loading="lazy">
+                <img src="images/Webinterpret.png" alt="Webinterpret" loading="lazy">
+                <img src="images/ready2order.png" alt="ready2order" loading="lazy">
             </div>
         </section>
 
-        <section id="ai-secretary" class="ai-secretary">
-            <div class="ai-secretary-content">
-                <div class="ai-secretary-intro">
-                    <span class="section-label">AI VOICE ASSISTANT</span>
-                    <h2>Meet My AI Secretary</h2>
-                    <p>Have a question about my experience, projects, or product work? Start a live voice conversation with my AI Secretary.</p>
-                    <p class="microphone-note">
-                        <span aria-hidden="true">🎙️</span>
-                        Your browser will ask for microphone access when the conversation begins.
-                    </p>
-                    <div class="ai-secretary-actions">
-                        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer" class="contact-button calendar">
-                            <span class="calendar-icon" aria-hidden="true">📅</span>
-                            Book a Call
-                        </a>
+        <section id="ai-secretary" class="ai-secretary section-shell" aria-labelledby="ai-secretary-title">
+            <div class="ai-copy">
+                <p class="eyebrow">Live AI voice agent</p>
+                <h2 id="ai-secretary-title">Talk to My AI Assistant</h2>
+                <p class="section-lede">Ask about my experience, projects, product work, or availability. My AI assistant can answer questions and help you schedule a call.</p>
+                <p class="supporting-note">Your browser will request microphone access when you start. Prefer a human conversation?</p>
+                <a class="button button-light" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer">Book a Call</a>
+            </div>
+            <div class="ai-widget" aria-label="AI Assistant voice conversation">
+                <div class="ai-widget-header">
+                    <p class="ai-widget-kicker">Choose voice or text</p>
+                    <h3>Ask My AI Assistant</h3>
+                    <p>Start a voice conversation or type your question below.</p>
+                    <div class="ai-chat-modes" aria-label="Available conversation modes">
+                        <span><span aria-hidden="true">☎</span> Voice call</span>
+                        <span><span aria-hidden="true">●</span> Text chat</span>
                     </div>
                 </div>
-                <div class="ai-secretary-widget" aria-label="AI Secretary voice conversation">
-                    <elevenlabs-convai
-                        agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
-                        variant="expanded"
-                        action-text="Talk to AI Secretary"
-                        start-call-text="Start conversation"
-                        end-call-text="End conversation"
-                        listening-text="Listening..."
-                        speaking-text="AI Secretary is speaking"
-                    ></elevenlabs-convai>
+                <div class="ai-widget-stage">
+                <elevenlabs-convai
+                    class="embedded-ai-assistant"
+                    agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
+                    variant="expanded"
+                    action-text="Talk to My AI Assistant"
+                    start-call-text="Start conversation"
+                    end-call-text="End conversation"
+                    listening-text="Listening..."
+                    speaking-text="My AI Assistant is speaking"
+                ></elevenlabs-convai>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about">
-            <h2 class="about-heading">About Me</h2>
-            <div class="about-content centered">
-                <p class="about-description">I’m a Senior Product Manager with 8+ years of product experience building and scaling digital products across marketplaces, SaaS, e-commerce, and consumer platforms.</p>
-                <p class="about-paragraph">I work at the intersection of customer needs, business impact, data, and technology, turning complex problems into products that are simple to use and scalable to operate.</p>
-                <p class="about-intro">My experience spans:</p>
-                <ul class="about-list">
-                    <li>Product strategy and end-to-end delivery</li>
-                    <li>Growth, conversion, retention, and monetization</li>
-                    <li>AI-powered products, agents, and automation</li>
-                    <li>Platform capabilities and internal tools</li>
-                    <li>Experimentation and data-driven product development</li>
-                    <li>Marketplace and e-commerce experiences</li>
-                    <li>Cross-functional leadership across Engineering, Design, Data, Marketing, and Commercial teams</li>
-                </ul>
-                <p class="about-paragraph">I’m particularly interested in products where technology and AI can remove complexity, automate repetitive work, and create better experiences for customers and internal teams.</p>
-                <p class="about-languages">Languages:
-                    <span class="language-tag">German 🇩🇪</span>
-                    <span class="dot">•</span>
-                    <span class="language-tag">English 🇬🇧</span>
-                    <span class="dot">•</span>
-                    <span class="language-tag">Polish 🇵🇱</span>
-                </p>
+        <section id="product-work" class="product-work section-shell" aria-labelledby="product-work-title">
+            <div class="section-heading">
+                <p class="eyebrow">Selected product work</p>
+                <h2 id="product-work-title">Complex problems, shipped outcomes</h2>
+                <p class="section-lede">A selection of product initiatives spanning customer experience, platform capabilities, growth, and monetization.</p>
+            </div>
+
+            <div class="case-study-list">
+                <article id="groupon-gifting" class="case-study">
+                    <div class="case-study-heading">
+                        <p class="case-number">01</p>
+                        <div>
+                            <p class="case-company">Groupon</p>
+                            <h3>Gifting expansion</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-details">
+                        <div>
+                            <h4>Context</h4>
+                            <p>Giftable inventory was limited, while the purchase, delivery, redemption, and support journey was fragmented.</p>
+                        </div>
+                        <div>
+                            <h4>Contribution</h4>
+                            <p>Expanded third-party gifting and coordinated improvements across the complete customer and operational journey.</p>
+                        </div>
+                        <div class="case-outcome">
+                            <h4>Outcome</h4>
+                            <p><strong>0.06% → 3.59%</strong> giftable inventory, contributing approximately <strong>€2.5M annualized margin</strong>.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="groupon-monetization" class="case-study">
+                    <div class="case-study-heading">
+                        <p class="case-number">02</p>
+                        <div>
+                            <p class="case-company">Groupon</p>
+                            <h3>Discovery monetization</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-details">
+                        <div>
+                            <h4>Context</h4>
+                            <p>The opportunity was to grow incremental revenue without degrading high-traffic discovery experiences.</p>
+                        </div>
+                        <div>
+                            <h4>Contribution</h4>
+                            <p>Introduced and tested programmatic advertising improvements, including monetization within infinite scroll.</p>
+                        </div>
+                        <div class="case-outcome">
+                            <h4>Outcome</h4>
+                            <p><strong>+46% daily advertising revenue</strong> while balancing monetization with customer experience.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article id="toptal-experimentation" class="case-study">
+                    <div class="case-study-heading">
+                        <p class="case-number">03</p>
+                        <div>
+                            <p class="case-company">Toptal</p>
+                            <h3>Conversion &amp; experimentation</h3>
+                        </div>
+                    </div>
+                    <div class="case-study-details">
+                        <div>
+                            <h4>Context</h4>
+                            <p>High-value acquisition experiences needed stronger conversion and a less costly experimentation workflow.</p>
+                        </div>
+                        <div>
+                            <h4>Contribution</h4>
+                            <p>Led conversion experiments across UX, acquisition, and SEO, and built an experimentation-automation MVP.</p>
+                        </div>
+                        <div class="case-outcome">
+                            <h4>Outcome</h4>
+                            <p>Conversion grew from <strong>8.8% to 11%</strong>—about <strong>$10.8M annualized revenue impact</strong>—and automation reduced costs by approximately <strong>70%</strong>.</p>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="experience" class="experience">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <h3>Senior Product Manager, Pre-Purchase & Monetization</h3>
-                    <p class="company">Groupon</p>
-                    <p class="date">June 2025 – Present</p>
-                    <p class="location">Remote</p>
-                    <p class="role-summary">Own product initiatives across Groupon’s pre-purchase experience, gifting, monetization, and platform capabilities across web and mobile in North America and Europe.</p>
-                    <ul>
-                        <li>Expanded third-party gifting across Groupon inventory, increasing giftable inventory from 0.06% to 3.59% and contributing approximately €2.5M annualized margin</li>
-                        <li>Led cross-team improvements to the end-to-end gifting journey across purchasing, delivery, redemption, and customer support</li>
-                        <li>Shipped programmatic advertising improvements including infinite-scroll monetization, increasing daily ad revenue by 46%</li>
-                        <li>Led experimentation across high-traffic discovery and purchase experiences, balancing conversion, customer experience, and incremental revenue</li>
-                        <li>Worked across legacy and next-generation platforms to introduce scalable capabilities without blocking ongoing business development</li>
-                        <li>Partnered with Engineering, Design, Analytics, Commercial, Marketing, and platform teams across multiple markets</li>
-                        <li>Used AI and automation to accelerate product discovery, analysis, prototyping, monitoring, and internal workflows</li>
-                    </ul>
+        <section id="about" class="about section-shell" aria-labelledby="about-title">
+            <div class="section-heading">
+                <p class="eyebrow">About me</p>
+                <h2 id="about-title">A product leader who connects the whole system</h2>
+            </div>
+            <div class="about-layout">
+                <div class="about-copy">
+                    <p>I’m a Senior Product Manager with 8+ years of product experience building and scaling digital products across marketplaces, SaaS, e-commerce, and consumer platforms.</p>
+                    <p>I work at the intersection of customer needs, business impact, data, and technology, turning complex problems into products that are simple to use and scalable to operate.</p>
+                    <p>I’m particularly interested in products where technology and AI can remove complexity, automate repetitive work, and create better experiences for customers and internal teams.</p>
+                    <p class="languages"><strong>Languages:</strong> German 🇩🇪 <span aria-hidden="true">•</span> English 🇬🇧 <span aria-hidden="true">•</span> Polish 🇵🇱</p>
                 </div>
-                <div class="experience-card">
-                    <h3>Senior Growth Product Manager</h3>
-                    <p class="company">OmniCalculator</p>
-                    <p class="date">September 2024 – Present</p>
-                    <p class="location">Remote</p>
-                    <p class="role-summary">Drive growth and product initiatives across a high-traffic consumer platform, combining experimentation, monetization, organic acquisition, and AI.</p>
-                    <ul>
-                        <li>Led data-driven product and monetization experiments across high-traffic web experiences</li>
-                        <li>Developed AI-assisted approaches to content, SEO, and product discovery</li>
-                        <li>Improved technical performance and Core Web Vitals across acquisition surfaces</li>
-                        <li>Designed and evaluated A/B experiments across UX, acquisition, and monetization</li>
-                        <li>Mentored junior and mid-level Product Managers</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Growth Product Manager</h3>
-                    <p class="company">Toptal</p>
-                    <p class="date">October 2022 – August 2024</p>
-                    <p class="location">Remote</p>
-                    <p class="role-summary">Owned growth initiatives across some of Toptal’s highest-value acquisition experiences.</p>
-                    <ul>
-                        <li>Managed product experiences responsible for $100M+ in annual revenue</li>
-                        <li>Increased conversion from 8.8% to 11%, representing approximately $10.8M in annualized revenue impact</li>
-                        <li>Built an experimentation automation MVP that reduced operational costs by approximately 70%</li>
-                        <li>Led experimentation across acquisition, UX, SEO, and conversion</li>
-                        <li>Applied AI and automation to scale content and growth workflows</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Product Manager</h3>
-                    <p class="company">ready2order</p>
-                    <p class="date">July 2021 – December 2022</p>
-                    <p class="location">Remote</p>
-                    <p class="role-summary">Owned growth and lifecycle initiatives for a B2B SaaS platform serving small and medium-sized businesses.</p>
-                    <ul>
-                        <li>Developed and executed product roadmaps across acquisition, activation, retention, and monetization</li>
-                        <li>Improved customer lifecycle and conversion experiences</li>
-                        <li>Worked across Product, Engineering, Marketing, and Commercial teams</li>
-                        <li>Used retention, ARPU, MRR, and conversion metrics to prioritize product investments</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Product Manager</h3>
-                    <p class="company">Webinterpret</p>
-                    <p class="date">July 2018 – June 2021</p>
-                    <p class="location">Warsaw</p>
-                    <p class="role-summary">Built and scaled e-commerce products helping merchants sell internationally across major marketplaces.</p>
-                    <ul>
-                        <li>Owned a core revenue-generating marketplace product</li>
-                        <li>Developed subscription and monetization models for e-commerce services</li>
-                        <li>Led cross-functional product development from discovery through launch and iteration</li>
-                        <li>Managed strategic product relationships and integrations with major marketplace partners including eBay and Amazon</li>
-                        <li>Used customer, commercial, and product data to shape roadmap priorities</li>
-                    </ul>
-                </div>
-                <div class="experience-card">
-                    <h3>Customer Experience Manager</h3>
-                    <p class="company">Webinterpret</p>
-                    <p class="date">July 2014 – June 2018</p>
-                    <p class="location">Warsaw</p>
-                    <p class="role-summary">Led customer experience and retention initiatives before transitioning into Product Management.</p>
-                    <ul>
-                        <li>Developed customer retention and service strategies</li>
-                        <li>Built NPS and customer feedback programs to identify product and service opportunities</li>
-                        <li>Conducted competitive and customer research</li>
-                        <li>Managed team performance, development, and coaching</li>
-                        <li>Turned recurring customer problems into inputs for product development</li>
+                <div class="about-capabilities">
+                    <p class="list-label">My experience spans</p>
+                    <ul class="check-list">
+                        <li>Product strategy and end-to-end delivery</li>
+                        <li>Growth, conversion, retention, and monetization</li>
+                        <li>AI-powered products, agents, and automation</li>
+                        <li>Platform capabilities and internal tools</li>
+                        <li>Experimentation and data-driven product development</li>
+                        <li>Marketplace and e-commerce experiences</li>
+                        <li>Cross-functional leadership across Engineering, Design, Data, Marketing, and Commercial teams</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="education" class="education">
-            <h2>Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <h3>International Economics and Public Policy</h3>
-                    <p class="degree">Bachelor of Science (BS)</p>
-                    <p class="school">Johannes Gutenberg University, Mainz</p>
-                    <p class="date">October 2008 - March 2012</p>
-                </div>
-                <div class="education-card">
-                    <h3>Economics</h3>
-                    <p class="degree">Bachelor of Science (BS)</p>
-                    <p class="school">Warsaw School of Economics, Warsaw</p>
-                    <p class="date">August 2010 - February 2011</p>
-                    <p class="note">Erasmus Exchange Program</p>
-                </div>
+        <section id="experience" class="experience section-shell" aria-labelledby="experience-title">
+            <div class="section-heading">
+                <p class="eyebrow">Experience</p>
+                <h2 id="experience-title">From customer problems to product outcomes</h2>
+            </div>
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Jun 2025 – Present</p><p>Remote</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">Groupon</p>
+                        <h3>Senior Product Manager, Pre-Purchase &amp; Monetization</h3>
+                        <p>Own product initiatives across Groupon’s pre-purchase experience, gifting, monetization, and platform capabilities across web and mobile in North America and Europe.</p>
+                        <ul>
+                            <li>Expanded third-party gifting across Groupon inventory, increasing giftable inventory from 0.06% to 3.59% and contributing approximately €2.5M annualized margin</li>
+                            <li>Led cross-team improvements to the end-to-end gifting journey across purchasing, delivery, redemption, and customer support</li>
+                            <li>Shipped programmatic advertising improvements including infinite-scroll monetization, increasing daily ad revenue by 46%</li>
+                            <li>Led experimentation across high-traffic discovery and purchase experiences, balancing conversion, customer experience, and incremental revenue</li>
+                            <li>Worked across legacy and next-generation platforms to introduce scalable capabilities without blocking ongoing business development</li>
+                            <li>Partnered with Engineering, Design, Analytics, Commercial, Marketing, and platform teams across multiple markets</li>
+                            <li>Used AI and automation to accelerate product discovery, analysis, prototyping, monitoring, and internal workflows</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Sep 2024 – Present</p><p>Remote</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">OmniCalculator</p>
+                        <h3>Senior Growth Product Manager</h3>
+                        <p>Drive growth and product initiatives across a high-traffic consumer platform, combining experimentation, monetization, organic acquisition, and AI.</p>
+                        <ul>
+                            <li>Led data-driven product and monetization experiments across high-traffic web experiences</li>
+                            <li>Developed AI-assisted approaches to content, SEO, and product discovery</li>
+                            <li>Improved technical performance and Core Web Vitals across acquisition surfaces</li>
+                            <li>Designed and evaluated A/B experiments across UX, acquisition, and monetization</li>
+                            <li>Mentored junior and mid-level Product Managers</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Oct 2022 – Aug 2024</p><p>Remote</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">Toptal</p>
+                        <h3>Growth Product Manager</h3>
+                        <p>Owned growth initiatives across some of Toptal’s highest-value acquisition experiences.</p>
+                        <ul>
+                            <li>Managed product experiences responsible for $100M+ in annual revenue</li>
+                            <li>Increased conversion from 8.8% to 11%, representing approximately $10.8M in annualized revenue impact</li>
+                            <li>Built an experimentation automation MVP that reduced operational costs by approximately 70%</li>
+                            <li>Led experimentation across acquisition, UX, SEO, and conversion</li>
+                            <li>Applied AI and automation to scale content and growth workflows</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Jul 2021 – Dec 2022</p><p>Remote</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">ready2order</p>
+                        <h3>Product Manager</h3>
+                        <p>Owned growth and lifecycle initiatives for a B2B SaaS platform serving small and medium-sized businesses.</p>
+                        <ul>
+                            <li>Developed and executed product roadmaps across acquisition, activation, retention, and monetization</li>
+                            <li>Improved customer lifecycle and conversion experiences</li>
+                            <li>Worked across Product, Engineering, Marketing, and Commercial teams</li>
+                            <li>Used retention, ARPU, MRR, and conversion metrics to prioritize product investments</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Jul 2018 – Jun 2021</p><p>Warsaw</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">Webinterpret</p>
+                        <h3>Product Manager</h3>
+                        <p>Built and scaled e-commerce products helping merchants sell internationally across major marketplaces.</p>
+                        <ul>
+                            <li>Owned a core revenue-generating marketplace product</li>
+                            <li>Developed subscription and monetization models for e-commerce services</li>
+                            <li>Led cross-functional product development from discovery through launch and iteration</li>
+                            <li>Managed strategic product relationships and integrations with major marketplace partners including eBay and Amazon</li>
+                            <li>Used customer, commercial, and product data to shape roadmap priorities</li>
+                        </ul>
+                    </div>
+                </article>
+                <article class="timeline-item">
+                    <div class="timeline-meta"><p>Jul 2014 – Jun 2018</p><p>Warsaw</p></div>
+                    <div class="timeline-content">
+                        <p class="case-company">Webinterpret</p>
+                        <h3>Customer Experience Manager</h3>
+                        <p>Led customer experience and retention initiatives before transitioning into Product Management.</p>
+                        <ul>
+                            <li>Developed customer retention and service strategies</li>
+                            <li>Built NPS and customer feedback programs to identify product and service opportunities</li>
+                            <li>Conducted competitive and customer research</li>
+                            <li>Managed team performance, development, and coaching</li>
+                            <li>Turned recurring customer problems into inputs for product development</li>
+                        </ul>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="projects" class="projects">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
+        <section id="prototypes" class="prototypes section-shell" aria-labelledby="prototypes-title">
+            <div class="section-heading">
+                <p class="eyebrow">AI &amp; prototypes</p>
+                <h2 id="prototypes-title">Building to learn faster</h2>
+                <p class="section-lede">Hands-on tools and workflows that turn emerging technology into useful product capability.</p>
+            </div>
+            <div class="prototype-grid">
+                <article class="prototype-card">
+                    <p class="prototype-type">Live tool</p>
+                    <h3><a href="https://website-summary-tool.onrender.com/" target="_blank" rel="noopener noreferrer">Website Summary Tool</a></h3>
+                    <p>An AI-powered web app that turns pages into structured Markdown summaries.</p>
+                    <a class="text-link" href="https://website-summary-tool.onrender.com/" target="_blank" rel="noopener noreferrer">Open prototype <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="prototype-card">
+                    <p class="prototype-type">Live tool</p>
+                    <h3><a href="https://matrix-notes-flow.lovable.app/" target="_blank" rel="noopener noreferrer">Matrix Notes Flow</a></h3>
+                    <p>An interactive workflow for capturing, organizing, and acting on connected notes.</p>
+                    <a class="text-link" href="https://matrix-notes-flow.lovable.app/" target="_blank" rel="noopener noreferrer">Open prototype <span aria-hidden="true">↗</span></a>
+                </article>
+                <article class="prototype-card">
+                    <p class="prototype-type">Applied workflow</p>
                     <h3>AI SEO Automation</h3>
-                    <p>Development of AI-powered SEO tools</p>
-                    <div class="tags">
-                        <span>#AI</span>
-                        <span>#SEO</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3>Prompt Engineering</h3>
-                    <p>Optimized prompt templates for various use cases</p>
-                    <div class="tags">
-                        <span>#AI</span>
-                        <span>#Engineering</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3><a href="https://website-summary-tool.onrender.com/" target="_blank">Website Summary Tool</a></h3>
-                    <p>AI-powered tool for generating structured Markdown summaries of web pages</p>
-                    <div class="tags">
-                        <span>#AI</span>
-                        <span>#WebApp</span>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <h3><a href="https://matrix-notes-flow.lovable.app/" target="_blank">Matrix Notes Flow</a></h3>
-                    <p>Interactive note-taking and organization tool</p>
-                    <div class="tags">
-                        <span>#Productivity</span>
-                        <span>#WebApp</span>
-                    </div>
-                </div>
+                    <p>AI-assisted systems for research, content operations, and scalable organic product discovery.</p>
+                </article>
+                <article class="prototype-card">
+                    <p class="prototype-type">Product capability</p>
+                    <h3>AI Product Development &amp; Automation</h3>
+                    <p>Agents, MCP workflows, n8n automations, voice interfaces, and prototypes that reduce manual work.</p>
+                    <a class="text-link" href="https://github.com/Dennotto2007" target="_blank" rel="noopener noreferrer">Explore GitHub <span aria-hidden="true">↗</span></a>
+                </article>
             </div>
         </section>
 
-        <section id="github" class="github">
-            <h2>GitHub</h2>
-            <div class="github-content">
-                <div class="github-profile">
-                    <h3>GitHub Profile</h3>
-                    <a href="https://github.com/Dennotto2007" target="_blank" class="github-link">
-                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
-                        @Dennotto2007
-                    </a>
-                </div>
+        <section id="skills" class="skills section-shell" aria-labelledby="skills-title">
+            <div class="section-heading section-heading-compact">
+                <p class="eyebrow">Skills</p>
+                <h2 id="skills-title">A broad product toolkit</h2>
+            </div>
+            <ul class="skill-list" aria-label="Product capabilities">
+                <li>Product Strategy &amp; Discovery</li>
+                <li>AI &amp; Automation</li>
+                <li>Experimentation</li>
+                <li>Growth &amp; Monetization</li>
+                <li>Platform Products</li>
+                <li>Customer Experience</li>
+                <li>Data &amp; Analytics</li>
+                <li>Marketplace &amp; SaaS</li>
+            </ul>
+        </section>
+
+        <section id="education" class="education section-shell" aria-labelledby="education-title">
+            <div class="section-heading section-heading-compact">
+                <p class="eyebrow">Education</p>
+                <h2 id="education-title">Academic foundation</h2>
+            </div>
+            <div class="education-list">
+                <article class="education-item">
+                    <p class="education-date">2008 – 2012</p>
+                    <div>
+                        <h3>BSc, International Economics and Public Policy</h3>
+                        <p>Johannes Gutenberg University Mainz</p>
+                    </div>
+                </article>
+                <article class="education-item">
+                    <p class="education-date">2010 – 2011</p>
+                    <div>
+                        <h3>Economics, Erasmus Exchange</h3>
+                        <p>Warsaw School of Economics</p>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-            <div class="contact-content">
-                <p>I look forward to hearing from you!</p>
-                <div class="hero-buttons">
-                    <a href="https://www.linkedin.com/in/dennisotto/" target="_blank" class="contact-button linkedin">LinkedIn Profile</a>
-                    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer" class="contact-button calendar">
-                        <span class="calendar-icon" aria-hidden="true">📅</span>
-                        Book a Call
-                    </a>
-                    <a href="https://github.com/Dennotto2007" target="_blank" class="contact-button github">
-                        <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
-                        GitHub Profile
-                    </a>
-                </div>
+        <section id="contact" class="contact section-shell" aria-labelledby="contact-title">
+            <p class="eyebrow">Let’s talk</p>
+            <h2 id="contact-title">Have a difficult product problem?</h2>
+            <p class="section-lede">I’m open to senior product opportunities and conversations about building products that create measurable customer and business value.</p>
+            <div class="button-row">
+                <a class="button button-light" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer">Book a Call</a>
+                <a class="button button-outline-light" href="https://www.linkedin.com/in/dennisotto/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a class="button button-outline-light" href="https://github.com/Dennotto2007" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2025 Dennis Otto. All rights reserved.</p>
+    <footer class="site-footer">
+        <p>© 2026 Dennis Otto. Built as a product, not a résumé.</p>
     </footer>
+
+    <elevenlabs-convai
+        class="floating-ai-assistant"
+        agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
+        variant="expanded"
+        action-text="Ask My AI Assistant"
+        start-call-text="Start voice chat"
+        end-call-text="End conversation"
+        listening-text="Listening..."
+        speaking-text="My AI Assistant is speaking"
+        aria-label="Open the floating AI Assistant"
+    ></elevenlabs-convai>
+
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const mobileMenuButton = document.querySelector('.mobile-menu-button');
-            const navLinks = document.querySelector('.nav-links');
+        (() => {
+            const toggle = document.querySelector('.nav-toggle');
+            const navigation = document.querySelector('.nav-links');
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenuButton.classList.toggle('active');
-                navLinks.classList.toggle('active');
+            if (!toggle || !navigation) return;
+
+            const setMenuState = (isOpen) => {
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.classList.toggle('is-open', isOpen);
+                navigation.classList.toggle('is-open', isOpen);
+            };
+
+            toggle.addEventListener('click', () => {
+                setMenuState(toggle.getAttribute('aria-expanded') !== 'true');
             });
 
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenuButton.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
+            navigation.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setMenuState(false));
             });
-        });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+                    setMenuState(false);
+                    toggle.focus();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 960) setMenuState(false);
+            });
+        })();
     </script>
 </body>
-</html> 
+</html>
