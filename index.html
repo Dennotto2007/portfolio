@@ -20,6 +20,7 @@
             </button>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
+                <li><a href="#ai-secretary">AI Secretary</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -79,6 +80,37 @@
                     <span class="dot">•</span> 
                     <span class="language-tag">Polish 🇵🇱</span>
                 </p>
+            </div>
+        </section>
+
+        <section id="ai-secretary" class="ai-secretary">
+            <div class="ai-secretary-content">
+                <div class="ai-secretary-intro">
+                    <span class="section-label">AI VOICE ASSISTANT</span>
+                    <h2>Meet My AI Secretary</h2>
+                    <p>Have a question about my experience, projects, or product work? Start a live voice conversation with my AI Secretary.</p>
+                    <p class="microphone-note">
+                        <span aria-hidden="true">🎙️</span>
+                        Your browser will ask for microphone access when the conversation begins.
+                    </p>
+                    <div class="ai-secretary-actions">
+                        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer" class="contact-button calendar">
+                            <span class="calendar-icon" aria-hidden="true">📅</span>
+                            Book a Call
+                        </a>
+                    </div>
+                </div>
+                <div class="ai-secretary-widget" aria-label="AI Secretary voice conversation">
+                    <elevenlabs-convai
+                        agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
+                        variant="expanded"
+                        action-text="Talk to AI Secretary"
+                        start-call-text="Start conversation"
+                        end-call-text="End conversation"
+                        listening-text="Listening..."
+                        speaking-text="AI Secretary is speaking"
+                    ></elevenlabs-convai>
+                </div>
             </div>
         </section>
 
@@ -242,6 +274,10 @@
                 <p>I look forward to hearing from you!</p>
                 <div class="hero-buttons">
                     <a href="https://www.linkedin.com/in/dennisotto/" target="_blank" class="contact-button linkedin">LinkedIn Profile</a>
+                    <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer" class="contact-button calendar">
+                        <span class="calendar-icon" aria-hidden="true">📅</span>
+                        Book a Call
+                    </a>
                     <a href="https://github.com/Dennotto2007" target="_blank" class="contact-button github">
                         <img src="images/github-mark.svg" alt="GitHub Logo" class="github-logo">
                         GitHub Profile
@@ -254,6 +290,7 @@
     <footer>
         <p>&copy; 2025 Dennis Otto. All rights reserved.</p>
     </footer>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.querySelector('.mobile-menu-button');

@@ -237,6 +237,78 @@ section h2 {
     color: var(--primary-color);
 }
 
+/* AI Secretary */
+.ai-secretary {
+    background: linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #eef2ff 100%);
+    overflow: hidden;
+}
+
+.ai-secretary-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+    gap: 4rem;
+    align-items: center;
+}
+
+.ai-secretary-intro h2 {
+    margin: 1rem 0 1.25rem;
+    text-align: left;
+    line-height: 1.15;
+}
+
+.ai-secretary-intro > p:not(.microphone-note) {
+    max-width: 590px;
+    color: #4b5563;
+    font-size: 1.15rem;
+}
+
+.section-label {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #1d4ed8;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.microphone-note {
+    display: flex;
+    gap: 0.65rem;
+    align-items: flex-start;
+    margin-top: 1.5rem;
+    color: #6b7280;
+    font-size: 0.92rem;
+}
+
+.ai-secretary-actions {
+    display: flex;
+    margin-top: 1.5rem;
+}
+
+.ai-secretary-widget {
+    min-height: 500px;
+    padding: 1.25rem;
+    border: 1px solid rgba(37, 99, 235, 0.12);
+    border-radius: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 24px 60px rgba(37, 99, 235, 0.14);
+}
+
+.ai-secretary-widget elevenlabs-convai {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    min-height: 450px;
+    --elevenlabs-convai-widget-width: 100%;
+    --elevenlabs-convai-widget-height: 450px;
+}
+
 /* Contact */
 .contact {
     background: var(--secondary-bg);
@@ -324,6 +396,34 @@ footer {
     
     .experience-grid, .projects-grid {
         grid-template-columns: 1fr;
+    }
+
+    .ai-secretary-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .ai-secretary-intro h2 {
+        text-align: center;
+    }
+
+    .ai-secretary-intro {
+        text-align: center;
+    }
+
+    .microphone-note {
+        justify-content: center;
+        text-align: left;
+    }
+
+    .ai-secretary-widget {
+        min-height: 440px;
+        padding: 0.75rem;
+    }
+
+    .ai-secretary-widget elevenlabs-convai {
+        min-height: 400px;
+        --elevenlabs-convai-widget-height: 400px;
     }
     
     .experience-card, .education-card {
@@ -623,6 +723,27 @@ footer {
     background-color: #2f363d;
 }
 
+.contact-button.calendar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    background: white;
+    border: 1px solid rgba(37, 99, 235, 0.35);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+.contact-button.calendar:hover {
+    color: white;
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.calendar-icon {
+    line-height: 1;
+}
+
 .contact-button.github .github-logo {
     width: 20px;
     height: 20px;
@@ -633,6 +754,9 @@ footer {
     .hero-buttons {
         flex-direction: column;
         align-items: center;
+        justify-content: center;
+    }
+    .ai-secretary-actions {
         justify-content: center;
     }
     .contact-button {
