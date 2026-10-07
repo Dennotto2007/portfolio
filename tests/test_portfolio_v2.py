@@ -104,7 +104,7 @@ class PortfolioV2Tests(unittest.TestCase):
             with self.subTest(metric=metric):
                 self.assertIn(metric, proof_text)
 
-    def test_v2_keeps_ai_secretary_prominent_and_bookable(self):
+    def test_v2_keeps_ai_assistant_prominent_and_bookable(self):
         parser = self.parse_v2()
         widgets = parser.find_all("elevenlabs-convai")
         self.assertEqual(len(widgets), 1)
@@ -114,7 +114,7 @@ class PortfolioV2Tests(unittest.TestCase):
         )
         ai_section = parser.find_all("section", element_id="ai-secretary")[0]
         ai_text = parser.text(ai_section)
-        self.assertIn("AI Secretary", ai_text)
+        self.assertIn("AI Assistant", ai_text)
         self.assertIn("Book a Call", ai_text)
         calendar_links = [
             link
@@ -122,6 +122,19 @@ class PortfolioV2Tests(unittest.TestCase):
             if "calendar.google.com/calendar/appointments/schedules/" in link["attrs"].get("href", "")
         ]
         self.assertGreaterEqual(len(calendar_links), 2)
+
+    def test_v2_uses_natural_ai_assistant_copy(self):
+        parser = self.parse_v2()
+        ai_section = parser.find_all("section", element_id="ai-secretary")[0]
+        ai_text = parser.text(ai_section)
+        self.assertIn("Talk to My AI Assistant", ai_text)
+        self.assertIn(
+            "Ask about my experience, projects, product work, or availability. "
+            "My AI assistant can answer questions and help you schedule a call.",
+            ai_text,
+        )
+        widget = parser.find_all("elevenlabs-convai")[0]
+        self.assertEqual(widget["attrs"].get("action-text"), "Talk to My AI Assistant")
 
     def test_v2_loads_the_compatible_elevenlabs_widget_embed(self):
         parser = self.parse_v2()
