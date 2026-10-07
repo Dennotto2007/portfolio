@@ -94,7 +94,18 @@
                 <a class="button button-light" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </div>
             <div class="ai-widget" aria-label="AI Assistant voice conversation">
+                <div class="ai-widget-header">
+                    <p class="ai-widget-kicker">Choose voice or text</p>
+                    <h3>Ask My AI Assistant</h3>
+                    <p>Start a voice conversation or type your question below.</p>
+                    <div class="ai-chat-modes" aria-label="Available conversation modes">
+                        <span><span aria-hidden="true">☎</span> Voice call</span>
+                        <span><span aria-hidden="true">●</span> Text chat</span>
+                    </div>
+                </div>
+                <div class="ai-widget-stage">
                 <elevenlabs-convai
+                    class="embedded-ai-assistant"
                     agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
                     variant="expanded"
                     action-text="Talk to My AI Assistant"
@@ -103,6 +114,7 @@
                     listening-text="Listening..."
                     speaking-text="My AI Assistant is speaking"
                 ></elevenlabs-convai>
+                </div>
             </div>
         </section>
 
@@ -403,6 +415,18 @@
     <footer class="site-footer">
         <p>© 2026 Dennis Otto. Built as a product, not a résumé.</p>
     </footer>
+
+    <elevenlabs-convai
+        class="floating-ai-assistant"
+        agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
+        variant="expanded"
+        action-text="Ask My AI Assistant"
+        start-call-text="Start voice chat"
+        end-call-text="End conversation"
+        listening-text="Listening..."
+        speaking-text="My AI Assistant is speaking"
+        aria-label="Open the floating AI Assistant"
+    ></elevenlabs-convai>
 
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <script>

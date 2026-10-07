@@ -107,10 +107,10 @@ class PortfolioV2Tests(unittest.TestCase):
     def test_v2_keeps_ai_assistant_prominent_and_bookable(self):
         parser = self.parse_v2()
         widgets = parser.find_all("elevenlabs-convai")
-        self.assertEqual(len(widgets), 1)
+        self.assertEqual(len(widgets), 2)
         self.assertEqual(
-            widgets[0]["attrs"].get("agent-id"),
-            "agent_9501m3kf78y2f6cbaz4tym7zs8r9",
+            {widget["attrs"].get("agent-id") for widget in widgets},
+            {"agent_9501m3kf78y2f6cbaz4tym7zs8r9"},
         )
         ai_section = parser.find_all("section", element_id="ai-secretary")[0]
         ai_text = parser.text(ai_section)
@@ -133,8 +133,40 @@ class PortfolioV2Tests(unittest.TestCase):
             "My AI assistant can answer questions and help you schedule a call.",
             ai_text,
         )
-        widget = parser.find_all("elevenlabs-convai")[0]
-        self.assertEqual(widget["attrs"].get("action-text"), "Talk to My AI Assistant")
+        embedded_widget = parser.find_all(
+            "elevenlabs-convai", class_name="embedded-ai-assistant"
+        )[0]
+        self.assertEqual(
+            embedded_widget["attrs"].get("action-text"),
+            "Talk to My AI Assistant",
+        )
+
+    def test_v2_offers_embedded_and_floating_ai_entry_points(self):
+        parser = self.parse_v2()
+        embedded = parser.find_all(
+            "elevenlabs-convai", class_name="embedded-ai-assistant"
+        )
+        floating = parser.find_all(
+            "elevenlabs-convai", class_name="floating-ai-assistant"
+        )
+        self.assertEqual(len(embedded), 1)
+        self.assertEqual(len(floating), 1)
+        self.assertEqual(embedded[0]["attrs"].get("variant"), "expanded")
+        self.assertEqual(floating[0]["attrs"].get("variant"), "expanded")
+        self.assertEqual(
+            floating[0]["attrs"].get("action-text"),
+            "Ask My AI Assistant",
+        )
+
+        ai_section = parser.find_all("section", element_id="ai-secretary")[0]
+        ai_text = parser.text(ai_section)
+        self.assertIn("Ask My AI Assistant", ai_text)
+        self.assertIn(
+            "Start a voice conversation or type your question below.",
+            ai_text,
+        )
+        self.assertIn("Voice call", ai_text)
+        self.assertIn("Text chat", ai_text)
 
     def test_v2_loads_the_compatible_elevenlabs_widget_embed(self):
         parser = self.parse_v2()
