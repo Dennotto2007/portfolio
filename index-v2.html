@@ -14,7 +14,13 @@
     <header class="site-header">
         <nav class="site-nav" aria-label="Primary navigation">
             <a class="brand" href="#hero" aria-label="Dennis Otto, back to top">DO</a>
-            <ul class="nav-links">
+            <button class="nav-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
+                <span class="nav-toggle-line" aria-hidden="true"></span>
+            </button>
+            <ul id="primary-navigation" class="nav-links">
                 <li><a href="#product-work">Product Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#experience">Experience</a></li>
@@ -383,5 +389,38 @@
     </footer>
 
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script>
+        (() => {
+            const toggle = document.querySelector('.nav-toggle');
+            const navigation = document.querySelector('.nav-links');
+
+            if (!toggle || !navigation) return;
+
+            const setMenuState = (isOpen) => {
+                toggle.setAttribute('aria-expanded', String(isOpen));
+                toggle.classList.toggle('is-open', isOpen);
+                navigation.classList.toggle('is-open', isOpen);
+            };
+
+            toggle.addEventListener('click', () => {
+                setMenuState(toggle.getAttribute('aria-expanded') !== 'true');
+            });
+
+            navigation.querySelectorAll('a').forEach((link) => {
+                link.addEventListener('click', () => setMenuState(false));
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    setMenuState(false);
+                    toggle.focus();
+                }
+            });
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 960) setMenuState(false);
+            });
+        })();
+    </script>
 </body>
 </html>

@@ -18,6 +18,7 @@ class PortfolioParser(HTMLParser):
             "tag": tag,
             "attrs": dict(attrs),
             "text_parts": [],
+            "ancestor_ids": [ancestor["attrs"].get("id") for ancestor in self.stack],
         }
         self.elements.append(element)
         for ancestor in self.stack:
@@ -175,6 +176,43 @@ class PortfolioV2Tests(unittest.TestCase):
             rel_values = set(link["attrs"].get("rel", "").split())
             with self.subTest(href=link["attrs"].get("href")):
                 self.assertTrue({"noopener", "noreferrer"}.issubset(rel_values))
+
+    def test_v2_navigation_exposes_accessible_mobile_state(self):
+        parser = self.parse_v2()
+        toggles = parser.find_all("button", class_name="nav-toggle")
+        self.assertEqual(len(toggles), 1)
+        self.assertEqual(toggles[0]["attrs"].get("aria-controls"), "primary-navigation")
+        self.assertEqual(toggles[0]["attrs"].get("aria-expanded"), "false")
+
+        nav_lists = parser.find_all("ul", element_id="primary-navigation")
+        self.assertEqual(len(nav_lists), 1)
+        expected_links = [
+            ("#product-work", "Product Work"),
+            ("#about", "About"),
+            ("#experience", "Experience"),
+            ("#prototypes", "AI & Prototypes"),
+            ("#skills", "Skills"),
+            ("#contact", "Contact"),
+        ]
+        section_links = [
+            (link["attrs"].get("href"), parser.text(link))
+            for link in parser.find_all("a")
+            if "primary-navigation" in link["ancestor_ids"]
+        ]
+        self.assertEqual(section_links, expected_links)
+
+        stylesheet_links = [
+            link
+            for link in parser.find_all("link")
+            if link["attrs"].get("rel") == "stylesheet"
+        ]
+        self.assertEqual(
+            [link["attrs"].get("href") for link in stylesheet_links],
+            [
+                "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap",
+                "styles-v2.css",
+            ],
+        )
 
 
 if __name__ == "__main__":
