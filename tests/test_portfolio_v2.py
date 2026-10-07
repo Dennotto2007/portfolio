@@ -1,12 +1,15 @@
 from html.parser import HTMLParser
+import hashlib
 from pathlib import Path
 import re
 import unittest
 
 
 PORTFOLIO_ROOT = Path(__file__).resolve().parents[1]
-V2_HTML = PORTFOLIO_ROOT / "index-v2.html"
-V2_CSS = PORTFOLIO_ROOT / "styles-v2.css"
+V2_HTML = PORTFOLIO_ROOT / "index.html"
+V2_CSS = PORTFOLIO_ROOT / "styles.css"
+ARCHIVED_HTML = PORTFOLIO_ROOT / "archive" / "index-original.html"
+ARCHIVED_CSS = PORTFOLIO_ROOT / "archive" / "styles-original.css"
 
 
 class PortfolioParser(HTMLParser):
@@ -64,7 +67,7 @@ class PortfolioParser(HTMLParser):
 
 class PortfolioV2Tests(unittest.TestCase):
     def parse_v2(self):
-        self.assertTrue(V2_HTML.exists(), "index-v2.html must exist")
+        self.assertTrue(V2_HTML.exists(), "index.html must exist")
         parser = PortfolioParser()
         parser.feed(V2_HTML.read_text(encoding="utf-8"))
         return parser
@@ -297,8 +300,20 @@ class PortfolioV2Tests(unittest.TestCase):
             [link["attrs"].get("href") for link in stylesheet_links],
             [
                 "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap",
-                "styles-v2.css",
+                "styles.css",
             ],
+        )
+
+    def test_original_portfolio_files_are_preserved_in_the_archive(self):
+        self.assertTrue(ARCHIVED_HTML.exists())
+        self.assertTrue(ARCHIVED_CSS.exists())
+        self.assertEqual(
+            hashlib.sha256(ARCHIVED_HTML.read_bytes()).hexdigest(),
+            "d8f57a27478b52f7f03683f29ccb9fc9b3d27d36a2fb60492b11fc63253b232a",
+        )
+        self.assertEqual(
+            hashlib.sha256(ARCHIVED_CSS.read_bytes()).hexdigest(),
+            "bf03e7b285b95ab044754a2bde14ababe8d918231198e5c17d4b576e1e79ccaf",
         )
 
     def test_v2_retains_all_six_approved_experience_roles(self):
