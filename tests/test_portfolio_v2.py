@@ -1,10 +1,12 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 
 
 PORTFOLIO_ROOT = Path(__file__).resolve().parents[1]
 V2_HTML = PORTFOLIO_ROOT / "index-v2.html"
+V2_CSS = PORTFOLIO_ROOT / "styles-v2.css"
 
 
 class PortfolioParser(HTMLParser):
@@ -131,6 +133,35 @@ class PortfolioV2Tests(unittest.TestCase):
             and "async" in script["attrs"]
         ]
         self.assertEqual(len(widget_scripts), 1)
+
+    def test_v2_contains_the_elevenlabs_widget_inside_its_panel(self):
+        css = V2_CSS.read_text(encoding="utf-8")
+
+        def declarations_for(selector):
+            match = re.search(
+                rf"{re.escape(selector)}\s*\{{(?P<body>[^}}]+)\}}",
+                css,
+                flags=re.MULTILINE,
+            )
+            self.assertIsNotNone(match, f"Missing CSS rule for {selector}")
+            declarations = {}
+            for declaration in match.group("body").split(";"):
+                if ":" not in declaration:
+                    continue
+                property_name, value = declaration.split(":", 1)
+                declarations[property_name.strip()] = value.strip()
+            return declarations
+
+        panel = declarations_for(".ai-widget")
+        widget = declarations_for(".ai-widget elevenlabs-convai")
+        self.assertEqual(panel.get("position"), "relative")
+        self.assertEqual(panel.get("overflow"), "hidden")
+        self.assertEqual(widget.get("position"), "relative")
+        self.assertEqual(widget.get("inset"), "auto")
+        self.assertEqual(widget.get("display"), "block")
+        self.assertEqual(widget.get("width"), "100%")
+        self.assertEqual(widget.get("--elevenlabs-convai-widget-width"), "100%")
+        self.assertEqual(widget.get("--elevenlabs-convai-widget-height"), "22rem")
 
     def test_v2_contains_three_selected_product_case_studies(self):
         parser = self.parse_v2()

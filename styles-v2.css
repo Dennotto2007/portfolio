@@ -476,9 +476,11 @@ h4 {
 }
 
 .ai-widget {
+    position: relative;
     display: flex;
     min-height: 25rem;
     padding: 1rem;
+    overflow: hidden;
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-md);
     background: rgba(255, 255, 255, 0.12);
@@ -487,7 +489,13 @@ h4 {
 }
 
 .ai-widget elevenlabs-convai {
+    position: relative;
+    inset: auto;
+    display: block;
     width: 100%;
+    min-height: 22rem;
+    --elevenlabs-convai-widget-width: 100%;
+    --elevenlabs-convai-widget-height: 22rem;
 }
 
 .product-work {
@@ -899,6 +907,11 @@ h4 {
         min-height: 20rem;
     }
 
+    .ai-widget elevenlabs-convai {
+        min-height: 18rem;
+        --elevenlabs-convai-widget-height: 18rem;
+    }
+
     .case-study-details {
         gap: 1.25rem;
     }
@@ -1002,6 +1015,11 @@ h4 {
     .ai-widget {
         min-height: 17rem;
         padding: 0.5rem;
+    }
+
+    .ai-widget elevenlabs-convai {
+        min-height: 15rem;
+        --elevenlabs-convai-widget-height: 15rem;
     }
 
     .case-study {
