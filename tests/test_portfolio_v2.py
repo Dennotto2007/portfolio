@@ -121,6 +121,17 @@ class PortfolioV2Tests(unittest.TestCase):
         ]
         self.assertGreaterEqual(len(calendar_links), 2)
 
+    def test_v2_loads_the_compatible_elevenlabs_widget_embed(self):
+        parser = self.parse_v2()
+        widget_scripts = [
+            script
+            for script in parser.find_all("script")
+            if script["attrs"].get("src")
+            == "https://unpkg.com/@elevenlabs/convai-widget-embed"
+            and "async" in script["attrs"]
+        ]
+        self.assertEqual(len(widget_scripts), 1)
+
     def test_v2_contains_three_selected_product_case_studies(self):
         parser = self.parse_v2()
         case_studies = parser.find_all("article", class_name="case-study")
