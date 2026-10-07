@@ -459,7 +459,15 @@ h4 {
 
 .ai-secretary .section-lede,
 .supporting-note {
-    color: rgba(255, 255, 255, 0.78);
+    color: rgba(255, 255, 255, 0.92);
+}
+
+.proof :focus-visible,
+.ai-secretary :focus-visible,
+.prototype-card:nth-child(4n + 1) :focus-visible,
+.prototype-card:nth-child(4n + 4) :focus-visible,
+.contact :focus-visible {
+    outline-color: var(--teal-light);
 }
 
 .supporting-note {
