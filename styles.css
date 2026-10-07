@@ -187,6 +187,12 @@ section h2 {
     font-size: 0.9rem;
 }
 
+.experience-card .role-summary {
+    margin-top: 0.75rem;
+    color: #4b5563;
+    line-height: 1.6;
+}
+
 .experience-card ul {
     list-style: none;
     margin-top: 1rem;
@@ -549,15 +555,29 @@ footer {
 }
 
 .about-content.centered {
-    max-width: 700px;
+    max-width: 850px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
 }
 
 .about-description {
-    font-size: 1.3rem;
-    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
     color: var(--text-color);
+}
+
+.about-paragraph {
+    margin-bottom: 1.25rem;
+    color: #4b5563;
+    font-size: 1.08rem;
+    line-height: 1.8;
+}
+
+.about-intro {
+    margin: 1.75rem 0 1rem;
+    font-size: 1.08rem;
+    font-weight: 600;
 }
 
 .about-list {
@@ -568,13 +588,12 @@ footer {
 
 .about-list li {
     position: relative;
-    font-size: 1.15rem;
-    margin-bottom: 1.2rem;
-    padding-left: 0.5rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.85rem;
     color: var(--text-color);
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .about-list li::before {
@@ -584,6 +603,8 @@ footer {
     height: 8px;
     background: var(--primary-color);
     border-radius: 50%;
+    flex: 0 0 8px;
+    margin-top: 0.55rem;
     margin-right: 1rem;
 }
 
