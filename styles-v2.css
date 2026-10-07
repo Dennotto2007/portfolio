@@ -6,7 +6,8 @@
     --surface-blue: #edf4ff;
     --blue: #175cff;
     --blue-dark: #0d43c7;
-    --teal: #08a89b;
+    --teal: #087a71;
+    --teal-light: #bffbf5;
     --line: #dce3ea;
     --line-dark: rgba(255, 255, 255, 0.18);
     --shadow-sm: 0 12px 32px rgba(16, 35, 63, 0.08);
@@ -449,7 +450,7 @@ h4 {
 }
 
 .ai-secretary .eyebrow {
-    color: #a4f4ec;
+    color: var(--teal-light);
 }
 
 .ai-secretary h2 {
@@ -694,6 +695,13 @@ h4 {
     color: rgba(255, 255, 255, 0.7);
 }
 
+.prototype-card:nth-child(4n + 1) .prototype-type,
+.prototype-card:nth-child(4n + 4) .prototype-type,
+.prototype-card:nth-child(4n + 1) .text-link,
+.prototype-card:nth-child(4n + 4) .text-link {
+    color: var(--teal-light);
+}
+
 .prototype-card h3 a {
     text-decoration: none;
 }
@@ -818,12 +826,14 @@ h4 {
         pointer-events: none;
         transform: translateY(-0.75rem);
         transition: opacity 180ms ease, transform 180ms ease;
+        visibility: hidden;
     }
 
     .nav-links.is-open {
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
+        visibility: visible;
     }
 
     .nav-links a {

@@ -214,6 +214,35 @@ class PortfolioV2Tests(unittest.TestCase):
             ],
         )
 
+    def test_v2_retains_all_six_approved_experience_roles(self):
+        parser = self.parse_v2()
+        experience = parser.find_all("section", element_id="experience")[0]
+        experience_text = parser.text(experience)
+        self.assertEqual(len(parser.find_all("article", class_name="timeline-item")), 6)
+        for approved_detail in (
+            "Partnered with Engineering, Design, Analytics, Commercial, Marketing, and platform teams across multiple markets",
+            "Designed and evaluated A/B experiments across UX, acquisition, and monetization",
+            "Applied AI and automation to scale content and growth workflows",
+            "Worked across Product, Engineering, Marketing, and Commercial teams",
+            "Used customer, commercial, and product data to shape roadmap priorities",
+            "Conducted competitive and customer research",
+        ):
+            with self.subTest(approved_detail=approved_detail):
+                self.assertIn(approved_detail, experience_text)
+
+    def test_v2_uses_the_approved_booking_schedule(self):
+        parser = self.parse_v2()
+        approved_url = (
+            "https://calendar.google.com/calendar/appointments/schedules/"
+            "AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg"
+        )
+        calendar_links = [
+            link["attrs"].get("href")
+            for link in parser.find_all("a")
+            if "calendar.google.com/calendar/appointments/schedules/" in link["attrs"].get("href", "")
+        ]
+        self.assertEqual(calendar_links, [approved_url, approved_url])
+
 
 if __name__ == "__main__":
     unittest.main()
