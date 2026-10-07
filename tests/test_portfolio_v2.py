@@ -147,7 +147,7 @@ class PortfolioV2Tests(unittest.TestCase):
         ]
         self.assertEqual(len(widget_scripts), 1)
 
-    def test_v2_contains_the_elevenlabs_widget_inside_its_panel(self):
+    def test_v2_anchors_the_elevenlabs_widget_without_clipping_chat(self):
         css = V2_CSS.read_text(encoding="utf-8")
 
         def declarations_for(selector):
@@ -168,7 +168,7 @@ class PortfolioV2Tests(unittest.TestCase):
         panel = declarations_for(".ai-widget")
         widget = declarations_for(".ai-widget elevenlabs-convai")
         self.assertEqual(panel.get("position"), "relative")
-        self.assertEqual(panel.get("overflow"), "hidden")
+        self.assertEqual(panel.get("overflow"), "visible")
         self.assertEqual(widget.get("position"), "relative")
         self.assertEqual(widget.get("inset"), "auto")
         self.assertEqual(widget.get("display"), "block")
