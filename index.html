@@ -97,23 +97,18 @@
                 <div class="ai-widget-header">
                     <p class="ai-widget-kicker">Choose voice or text</p>
                     <h3>Ask My AI Assistant</h3>
-                    <p>Start a voice conversation or type your question below.</p>
+                    <p>Open the assistant to start a voice conversation or type your question.</p>
                     <div class="ai-chat-modes" aria-label="Available conversation modes">
                         <span><span aria-hidden="true">☎</span> Voice call</span>
                         <span><span aria-hidden="true">●</span> Text chat</span>
                     </div>
                 </div>
                 <div class="ai-widget-stage">
-                <elevenlabs-convai
-                    class="embedded-ai-assistant"
-                    agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
-                    variant="expanded"
-                    action-text="Talk to My AI Assistant"
-                    start-call-text="Start conversation"
-                    end-call-text="End conversation"
-                    listening-text="Listening..."
-                    speaking-text="My AI Assistant is speaking"
-                ></elevenlabs-convai>
+                    <button
+                        class="button button-primary ai-widget-open"
+                        type="button"
+                        aria-controls="ai-assistant-widget"
+                    >Open AI Assistant</button>
                 </div>
             </div>
         </section>
@@ -417,6 +412,7 @@
     </footer>
 
     <elevenlabs-convai
+        id="ai-assistant-widget"
         class="floating-ai-assistant"
         agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
         variant="expanded"
@@ -459,6 +455,66 @@
 
             window.addEventListener('resize', () => {
                 if (window.innerWidth > 960) setMenuState(false);
+            });
+        })();
+
+        (() => {
+            const assistant = document.querySelector('#ai-assistant-widget');
+            const launchers = document.querySelectorAll('.ai-widget-open');
+
+            if (!assistant || !launchers.length) return;
+
+            const delay = (milliseconds) => new Promise((resolve) => {
+                window.setTimeout(resolve, milliseconds);
+            });
+            let pendingExpansion = null;
+
+            const requestExpansion = () => {
+                if (pendingExpansion) return pendingExpansion;
+
+                pendingExpansion = (async () => {
+                    let retryDelay = 50;
+                    for (let attempt = 0; attempt < 30; attempt += 1) {
+                        const detail = { action: 'expand' };
+                        assistant.dispatchEvent(new CustomEvent('elevenlabs-agent:expand', {
+                            bubbles: true,
+                            composed: true,
+                            detail,
+                        }));
+
+                        if (detail._convaiEventHandled) return true;
+                        if (attempt === 29) return false;
+
+                        await delay(retryDelay);
+                        retryDelay = Math.min(retryDelay * 2, 1000);
+                    }
+                })().finally(() => {
+                    pendingExpansion = null;
+                });
+
+                return pendingExpansion;
+            };
+
+            const focusAssistant = (attempt = 0) => {
+                const control = assistant.shadowRoot?.querySelector(
+                    'textarea, input:not([type="hidden"]), [contenteditable="true"], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                );
+
+                if (control) {
+                    control.focus();
+                    return;
+                }
+
+                if (attempt < 20) {
+                    window.setTimeout(() => focusAssistant(attempt + 1), 50);
+                }
+            };
+
+            launchers.forEach((launcher) => {
+                launcher.addEventListener('click', async () => {
+                    const expanded = await requestExpansion();
+                    if (expanded) window.setTimeout(focusAssistant, 0);
+                });
             });
         })();
     </script>

@@ -478,9 +478,7 @@ h4 {
 .ai-widget {
     position: relative;
     display: flex;
-    min-height: 34rem;
     padding: 1.5rem;
-    overflow: visible;
     border: 1px solid rgba(16, 35, 63, 0.1);
     border-radius: var(--radius-md);
     background: var(--surface);
@@ -542,27 +540,15 @@ h4 {
 .ai-widget-stage {
     position: relative;
     display: flex;
-    min-height: 22rem;
-    align-items: center;
+    min-height: 5rem;
+    align-items: flex-end;
     flex: 1;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
-.ai-widget elevenlabs-convai {
-    position: relative;
-    inset: auto;
-    display: block;
-    width: 100%;
-    min-height: 22rem;
-    --elevenlabs-convai-widget-width: 100%;
-    --elevenlabs-convai-widget-height: 22rem;
-}
-
-.floating-ai-assistant {
-    position: fixed;
-    z-index: 300;
-    right: 1.5rem;
-    bottom: 1.5rem;
+.ai-widget-open {
+    cursor: pointer;
+    font-family: inherit;
 }
 
 .product-work {
@@ -970,19 +956,6 @@ h4 {
         grid-template-columns: 1fr;
     }
 
-    .ai-widget {
-        min-height: 31rem;
-    }
-
-    .ai-widget elevenlabs-convai {
-        min-height: 18rem;
-        --elevenlabs-convai-widget-height: 18rem;
-    }
-
-    .ai-widget-stage {
-        min-height: 18rem;
-    }
-
     .case-study-details {
         gap: 1.25rem;
     }
@@ -1084,22 +1057,11 @@ h4 {
     }
 
     .ai-widget {
-        min-height: 27rem;
         padding: 1rem;
     }
 
-    .ai-widget elevenlabs-convai {
-        min-height: 15rem;
-        --elevenlabs-convai-widget-height: 15rem;
-    }
-
     .ai-widget-stage {
-        min-height: 15rem;
-    }
-
-    .floating-ai-assistant {
-        right: 0.75rem;
-        bottom: 0.75rem;
+        min-height: 4rem;
     }
 
     .case-study {
