@@ -93,27 +93,26 @@
                 <p class="supporting-note">Your browser will request microphone access when you start. Prefer a human conversation?</p>
                 <a class="button button-light" href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0VEUbj0cybjt2SrXryf3jkqBol-_KjExRz75Y3XOEbExl53gnkRuE9zU5nPCBwF9jmbPW3z3Hg" target="_blank" rel="noopener noreferrer">Book a Call</a>
             </div>
-            <div class="ai-widget" aria-label="AI Assistant voice conversation">
+            <div class="ai-widget" aria-label="How to use the floating AI Assistant">
                 <div class="ai-widget-header">
-                    <p class="ai-widget-kicker">Choose voice or text</p>
+                    <p class="ai-widget-kicker">How to use it</p>
                     <h3>Ask My AI Assistant</h3>
-                    <p>Start a voice conversation or type your question below.</p>
-                    <div class="ai-chat-modes" aria-label="Available conversation modes">
-                        <span><span aria-hidden="true">☎</span> Voice call</span>
-                        <span><span aria-hidden="true">●</span> Text chat</span>
-                    </div>
-                </div>
-                <div class="ai-widget-stage">
-                <elevenlabs-convai
-                    class="embedded-ai-assistant"
-                    agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
-                    variant="expanded"
-                    action-text="Talk to My AI Assistant"
-                    start-call-text="Start conversation"
-                    end-call-text="End conversation"
-                    listening-text="Listening..."
-                    speaking-text="My AI Assistant is speaking"
-                ></elevenlabs-convai>
+                    <figure class="ai-widget-guide">
+                        <img
+                            class="ai-widget-guide-image"
+                            src="images/ai-assistant-widget-guide.png"
+                            width="570"
+                            height="320"
+                            loading="lazy"
+                            alt="The floating AI assistant with Start a call and text chat controls"
+                        >
+                        <figcaption>This control stays in the lower-right corner as you scroll.</figcaption>
+                    </figure>
+                    <ol class="ai-widget-steps">
+                        <li><span>1</span><p><strong>Find it.</strong> Find the floating assistant in the lower-right corner.</p></li>
+                        <li><span>2</span><p><strong>Choose a mode.</strong> Choose Start a call for voice or the message bubble for text.</p></li>
+                        <li><span>3</span><p><strong>Allow access.</strong> Allow microphone access when your browser asks.</p></li>
+                    </ol>
                 </div>
             </div>
         </section>
@@ -417,9 +416,10 @@
     </footer>
 
     <elevenlabs-convai
+        id="ai-assistant-widget"
         class="floating-ai-assistant"
         agent-id="agent_9501m3kf78y2f6cbaz4tym7zs8r9"
-        variant="expanded"
+        variant="compact"
         action-text="Ask My AI Assistant"
         start-call-text="Start voice chat"
         end-call-text="End conversation"

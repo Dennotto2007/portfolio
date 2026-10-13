@@ -1,7 +1,6 @@
 from html.parser import HTMLParser
 import hashlib
 from pathlib import Path
-import re
 import unittest
 
 
@@ -110,7 +109,7 @@ class PortfolioV2Tests(unittest.TestCase):
     def test_v2_keeps_ai_assistant_prominent_and_bookable(self):
         parser = self.parse_v2()
         widgets = parser.find_all("elevenlabs-convai")
-        self.assertEqual(len(widgets), 2)
+        self.assertEqual(len(widgets), 1)
         self.assertEqual(
             {widget["attrs"].get("agent-id") for widget in widgets},
             {"agent_9501m3kf78y2f6cbaz4tym7zs8r9"},
@@ -136,15 +135,15 @@ class PortfolioV2Tests(unittest.TestCase):
             "My AI assistant can answer questions and help you schedule a call.",
             ai_text,
         )
-        embedded_widget = parser.find_all(
-            "elevenlabs-convai", class_name="embedded-ai-assistant"
+        assistant_widget = parser.find_all(
+            "elevenlabs-convai", class_name="floating-ai-assistant"
         )[0]
         self.assertEqual(
-            embedded_widget["attrs"].get("action-text"),
-            "Talk to My AI Assistant",
+            assistant_widget["attrs"].get("action-text"),
+            "Ask My AI Assistant",
         )
 
-    def test_v2_offers_embedded_and_floating_ai_entry_points(self):
+    def test_v2_uses_one_unconstrained_floating_assistant(self):
         parser = self.parse_v2()
         embedded = parser.find_all(
             "elevenlabs-convai", class_name="embedded-ai-assistant"
@@ -152,24 +151,48 @@ class PortfolioV2Tests(unittest.TestCase):
         floating = parser.find_all(
             "elevenlabs-convai", class_name="floating-ai-assistant"
         )
-        self.assertEqual(len(embedded), 1)
+        launchers = parser.find_all("button", class_name="ai-widget-open")
+        docks = parser.find_all("div", element_id="ai-assistant-dock")
+
+        self.assertEqual(len(embedded), 0)
         self.assertEqual(len(floating), 1)
-        self.assertEqual(embedded[0]["attrs"].get("variant"), "expanded")
-        self.assertEqual(floating[0]["attrs"].get("variant"), "expanded")
+        self.assertEqual(floating[0]["attrs"].get("variant"), "compact")
+        self.assertEqual(floating[0]["attrs"].get("id"), "ai-assistant-widget")
         self.assertEqual(
             floating[0]["attrs"].get("action-text"),
             "Ask My AI Assistant",
         )
+        self.assertEqual(len(launchers), 0)
+        self.assertEqual(len(docks), 0)
 
         ai_section = parser.find_all("section", element_id="ai-secretary")[0]
         ai_text = parser.text(ai_section)
-        self.assertIn("Ask My AI Assistant", ai_text)
-        self.assertIn(
-            "Start a voice conversation or type your question below.",
-            ai_text,
+        usage_guides = parser.find_all("div", class_name="ai-widget")
+        self.assertEqual(len(usage_guides), 1)
+        self.assertEqual(
+            usage_guides[0]["attrs"].get("aria-label"),
+            "How to use the floating AI Assistant",
         )
-        self.assertIn("Voice call", ai_text)
-        self.assertIn("Text chat", ai_text)
+        self.assertIn("Ask My AI Assistant", ai_text)
+        self.assertIn("How to use it", ai_text)
+        self.assertIn("Find the floating assistant in the lower-right corner.", ai_text)
+        self.assertIn("Choose Start a call for voice or the message bubble for text.", ai_text)
+        self.assertIn("Allow microphone access when your browser asks.", ai_text)
+
+        self.assertEqual(len(parser.find_all("div", class_name="ai-chat-modes")), 0)
+        self.assertEqual(len(parser.find_all("figure", class_name="ai-widget-guide")), 1)
+        guide_images = parser.find_all("img", class_name="ai-widget-guide-image")
+        self.assertEqual(len(guide_images), 1)
+        self.assertEqual(
+            guide_images[0]["attrs"].get("src"),
+            "images/ai-assistant-widget-guide.png",
+        )
+        self.assertEqual(
+            guide_images[0]["attrs"].get("alt"),
+            "The floating AI assistant with Start a call and text chat controls",
+        )
+        guide_asset = PORTFOLIO_ROOT / guide_images[0]["attrs"]["src"]
+        self.assertTrue(guide_asset.exists())
 
     def test_v2_loads_the_compatible_elevenlabs_widget_embed(self):
         parser = self.parse_v2()
@@ -182,34 +205,13 @@ class PortfolioV2Tests(unittest.TestCase):
         ]
         self.assertEqual(len(widget_scripts), 1)
 
-    def test_v2_anchors_the_elevenlabs_widget_without_clipping_chat(self):
+    def test_v2_leaves_the_elevenlabs_overlay_unconstrained(self):
         css = V2_CSS.read_text(encoding="utf-8")
-
-        def declarations_for(selector):
-            match = re.search(
-                rf"{re.escape(selector)}\s*\{{(?P<body>[^}}]+)\}}",
-                css,
-                flags=re.MULTILINE,
-            )
-            self.assertIsNotNone(match, f"Missing CSS rule for {selector}")
-            declarations = {}
-            for declaration in match.group("body").split(";"):
-                if ":" not in declaration:
-                    continue
-                property_name, value = declaration.split(":", 1)
-                declarations[property_name.strip()] = value.strip()
-            return declarations
-
-        panel = declarations_for(".ai-widget")
-        widget = declarations_for(".ai-widget elevenlabs-convai")
-        self.assertEqual(panel.get("position"), "relative")
-        self.assertEqual(panel.get("overflow"), "visible")
-        self.assertEqual(widget.get("position"), "relative")
-        self.assertEqual(widget.get("inset"), "auto")
-        self.assertEqual(widget.get("display"), "block")
-        self.assertEqual(widget.get("width"), "100%")
-        self.assertEqual(widget.get("--elevenlabs-convai-widget-width"), "100%")
-        self.assertEqual(widget.get("--elevenlabs-convai-widget-height"), "22rem")
+        self.assertNotIn(".ai-widget elevenlabs-convai", css)
+        self.assertNotIn(".floating-ai-assistant", css)
+        self.assertNotIn(".ai-widget-dock", css)
+        self.assertNotIn("--elevenlabs-convai-widget-width", css)
+        self.assertNotIn("--elevenlabs-convai-widget-height", css)
 
     def test_v2_contains_three_selected_product_case_studies(self):
         parser = self.parse_v2()
